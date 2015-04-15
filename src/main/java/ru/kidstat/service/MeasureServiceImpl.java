@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.kidstat.dao.MeasureDAO;
 import ru.kidstat.model.Measure;
 
+import java.util.List;
+
 /**
  * Created by darya on 09/04/15.
  */
@@ -19,5 +21,10 @@ public class MeasureServiceImpl implements MeasureService{
     @Transactional
     public Measure save(Measure measure) {
         return measureDAO.save(measure);
+    }
+
+    @Override
+    public List<Measure> getMeasures() {
+        return measureDAO.getMeasures();
     }
 }

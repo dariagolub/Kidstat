@@ -5,6 +5,7 @@ import ru.kidstat.model.Measure;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by darya on 09/04/15.
@@ -20,5 +21,10 @@ public class MeasureDAOImpl implements MeasureDAO{
         em.persist(measure);
         em.flush();
         return measure;
+    }
+
+    @Override
+    public List<Measure> getMeasures() {
+        return em.createQuery("SELECT m FROM measure m").getResultList();
     }
 }
